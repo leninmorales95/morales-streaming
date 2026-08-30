@@ -3668,3 +3668,35 @@ footer a { color: #74e7ff; text-decoration: none; font-weight: 700; }
 }
 
 .detail-coupon-hint i { margin-right: 4px; color: #ffd15c; }
+
+/* Desplazamiento fluido sobre el catálogo en pantallas táctiles. */
+@media (max-width: 650px) and (hover: none) and (pointer: coarse) {
+  #cardsContainer,
+  #cardsContainer .card,
+  #cardsContainer .card-inner {
+    touch-action: pan-y;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  #cardsContainer .card {
+    contain: layout paint;
+    transition: none !important;
+  }
+
+  #cardsContainer .card:hover,
+  #cardsContainer .card:active {
+    transform: none !important;
+    box-shadow: none !important;
+  }
+
+  #cardsContainer .card-tag,
+  #cardsContainer .card-mini-badge,
+  #cardsContainer .add-to-cart-btn {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
+  #cardsContainer .brand-logo-card img {
+    transform: translateZ(0);
+  }
+}
